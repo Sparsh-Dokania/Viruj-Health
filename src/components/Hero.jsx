@@ -37,6 +37,49 @@ const Hero = () => {
             }
         });
 
+        // Pointer-driven subtle parallax for particles & mockup
+        const handlePointerMove = (e) => {
+            if (!heroRef.current) return;
+            const rect = heroRef.current.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width; // 0..1
+            const y = (e.clientY - rect.top) / rect.height; // 0..1
+            const xNorm = (x - 0.5) * 2; // -1..1
+            const yNorm = (y - 0.5) * 2; // -1..1
+
+            const particles = particlesRef.current ? Array.from(particlesRef.current.children) : [];
+            particles.forEach((el, i) => {
+                const depth = (i + 1) / Math.max(1, particles.length); // deeper elements move more
+                const moveX = xNorm * (8 * depth); // px
+                const moveY = yNorm * (6 * depth);
+                gsap.to(el, { x: moveX, y: moveY, duration: 0.6, ease: 'power3.out' });
+            });
+
+            // Slight mockup parallax (opposite direction for depth feel)
+            if (mockupRef.current) {
+                gsap.to(mockupRef.current, { x: xNorm * -6, y: yNorm * -4, duration: 0.8, ease: 'power3.out' });
+            }
+        };
+
+        const handlePointerLeave = () => {
+            const particles = particlesRef.current ? Array.from(particlesRef.current.children) : [];
+            particles.forEach((el) => gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: 'power3.out' }));
+            if (mockupRef.current) gsap.to(mockupRef.current, { x: 0, y: 0, duration: 0.8, ease: 'power3.out' });
+        };
+
+        const heroEl = heroRef.current;
+        if (heroEl) {
+            heroEl.addEventListener('pointermove', handlePointerMove);
+            heroEl.addEventListener('pointerleave', handlePointerLeave);
+        }
+
+        // cleanup listeners on unmount
+        return () => {
+            if (heroEl) {
+                heroEl.removeEventListener('pointermove', handlePointerMove);
+                heroEl.removeEventListener('pointerleave', handlePointerLeave);
+            }
+        };
+
     }, []);
 
     return (
@@ -65,8 +108,8 @@ const Hero = () => {
                 {/* Left Content */}
                 <div ref={textRef}>
                     <h1 style={{ fontSize: '3.5rem', lineHeight: '1.2', marginBottom: '20px' }}>
-                        Stop managing health — <br />
-                        <span className="gradient-text">start improving it.</span>
+                        Stop Managing Health
+                        <span className="gradient-text"> Start<br />Improving It</span>
                     </h1>
                     <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '40px', maxWidth: '500px' }}>
                         The intelligent platform that brings your medical records, teleconsultations, and daily wellness into one secure place.
