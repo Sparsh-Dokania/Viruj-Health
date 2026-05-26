@@ -7,8 +7,8 @@ import { FaStethoscope, FaPills, FaFileMedical, FaUserMd, FaHeartbeat } from 're
 gsap.registerPlugin(Draggable, ScrollTrigger);
 
 const features = [
-    { id: 1, title: 'Symptom Checker', icon: <FaStethoscope />, desc: 'AI-powered analysis in seconds.', color: 'var(--primary-blue)' },
-    { id: 2, title: 'Smart Reminders', icon: <FaPills />, desc: 'Never miss a dose again.', color: 'var(--secondary-teal)' },
+    { id: 1, title: 'Symptom Checker', icon: <FaStethoscope />, desc: 'AI-powered analysis in seconds.', color: '#0275D8' },
+    { id: 2, title: 'Smart Reminders', icon: <FaPills />, desc: 'Never miss a dose again.', color: '#00B39F' },
     { id: 3, title: 'Digital Records', icon: <FaFileMedical />, desc: 'All your history, one secure place.', color: '#6610f2' },
     { id: 4, title: 'Teleconsultation', icon: <FaUserMd />, desc: 'Connect with specialists instantly.', color: '#fd7e14' },
     { id: 5, title: 'Vitals Tracking', icon: <FaHeartbeat />, desc: 'Monitor trends over time.', color: '#e83e8c' },
@@ -84,7 +84,7 @@ const Features = () => {
                                     height: '60px',
                                     borderRadius: '16px',
                                     background: feature.color,
-                                    color: 'white',
+                                    color: 'black',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',

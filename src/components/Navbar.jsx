@@ -1,122 +1,181 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaShieldAlt, FaClock } from 'react-icons/fa';
-import logoSrc from '../assets/no_bg_logo.png';
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
+import { useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+export function NavbarDemo() {
+  const navItems = [
+    {
+      name: "Features",
+      link: "#features",
+    },
+    {
+      name: "Pricing",
+      link: "#pricing",
+    },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
+  ];
 
-const Navbar = () => {
-  const navRef = useRef(null);
-  const logoRef = useRef(null);
-  const trustBarRef = useRef(null);
-
-  useEffect(() => {
-    // Trust Bar Animation
-    gsap.fromTo(trustBarRef.current, 
-      { y: -20, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-    );
-
-    // Navbar Shrink on Scroll
-    ScrollTrigger.create({
-      start: "top top",
-      end: 99999,
-      onUpdate: (self) => {
-        if (self.direction === 1 && self.scroll() > 50) {
-           gsap.to(navRef.current, { 
-             height: '70px', 
-             backgroundColor: 'rgba(255, 255, 255, 0.95)',
-             boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-             duration: 0.3 
-           });
-           gsap.to(logoRef.current, { scale: 0.92, duration: 0.3 });
-           gsap.to(trustBarRef.current, { height: 0, opacity: 0, overflow: 'hidden', padding: 0, duration: 0.3 });
-        } else if (self.direction === -1 && self.scroll() < 50) {
-           gsap.to(navRef.current, { 
-             height: '90px', 
-             backgroundColor: 'rgba(255, 255, 255, 0.7)',
-             boxShadow: 'none',
-             duration: 0.3 
-           });
-           gsap.to(logoRef.current, { scale: 1, duration: 0.3 });
-           gsap.to(trustBarRef.current, { height: 'auto', opacity: 1, padding: '8px 0', duration: 0.3 });
-        }
-      }
-    });
-
-  }, []);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
-      {/* Trust Bar */}
-      <div ref={trustBarRef} style={{ 
-        background: 'linear-gradient(90deg, rgba(255,255,255,0.9), rgba(250,250,250,0.95))',
-        padding: '8px 0', 
-        fontSize: '0.85rem', 
-        color: 'var(--text-medium)',
-        borderBottom: '1px solid rgba(0,0,0,0.05)'
-      }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'center', gap: '20px', alignItems: 'center' }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--secondary-teal)' }}><FaShieldAlt style={{ color: 'var(--secondary-teal)' }} /> HIPAA-grade encryption</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary-blue)' }}><FaClock style={{ color: 'var(--primary-blue)' }} /> 24/7 support</span>
-          <span>Trusted by thousands</span>
-        </div>
-      </div>
-
-      {/* Navbar */}
-      <nav ref={navRef} className="glass-panel" style={{ 
-        height: '90px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between',
-        padding: '0 40px',
-        margin: '0 auto',
-        width: '100%',
-        maxWidth: '100%',
-        borderRadius: '0 0 16px 16px',
-        borderTop: 'none',
-        transition: 'background-color 0.3s'
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-          {/* Logo */}
-          <div ref={logoRef} style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
-            <img src={logoSrc} alt="VirujHealth" style={{ height: '48px', display: 'block' }} />
-            <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-dark)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span>Viruj</span><span style={{ color: 'var(--primary-blue)' }}>Health</span>
-            </div>
+    <div className="relative w-full">
+      <Navbar>
+        {/* Desktop Navigation */}
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <NavbarButton variant="secondary">Login</NavbarButton>
+            <NavbarButton variant="primary">Book a call</NavbarButton>
           </div>
+        </NavBody>
 
-          {/* Menu */}
-          <ul style={{ display: 'flex', gap: '30px', listStyle: 'none' }}>
-            {['Home', 'Features', 'Demo', 'Pricing', 'Contact'].map((item) => (
-              <li key={item} style={{ cursor: 'pointer', fontWeight: '500', position: 'relative' }} className="nav-item">
-                {item}
-              </li>
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+          </MobileNavHeader>
+
+          <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
+            {navItems.map((item, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="relative text-neutral-600 dark:text-neutral-300">
+                <span className="block">{item.name}</span>
+              </a>
             ))}
-          </ul>
+            <div className="flex w-full flex-col gap-4">
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full">
+                Login
+              </NavbarButton>
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full">
+                Book a call
+              </NavbarButton>
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+      <DummyContent />
+      {/* Navbar */}
+    </div>
+  );
+}
 
-          {/* CTA Buttons */}
-          <div style={{ display: 'flex', gap: '15px' }}>
-            <button style={{ 
-              background: 'transparent', 
-              color: 'var(--primary-blue)', 
-              fontWeight: '600', 
-              fontSize: '1rem' 
-            }}>Login</button>
-            <button style={{ 
-              background: 'linear-gradient(135deg, var(--primary-blue), var(--secondary-teal))', 
-              color: 'white', 
-              padding: '10px 24px', 
-              borderRadius: '30px', 
-              fontWeight: '600',
-              boxShadow: '0 4px 15px rgba(0,0,0,0.08)'
-            }}>Get Started</button>
+const DummyContent = () => {
+  return (
+    <div className="container mx-auto p-8 pt-24">
+      <h1 className="mb-4 text-center text-3xl font-bold">
+        Check the navbar at the top of the container
+      </h1>
+      <p className="mb-10 text-center text-sm text-zinc-500">
+        For demo purpose we have kept the position as{" "}
+        <span className="font-medium">Sticky</span>. Keep in mind that this
+        component is <span className="font-medium">fixed</span> and will not
+        move when scrolling.
+      </p>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        {[
+          {
+            id: 1,
+            title: "The",
+            width: "md:col-span-1",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 2,
+            title: "First",
+            width: "md:col-span-2",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 3,
+            title: "Rule",
+            width: "md:col-span-1",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 4,
+            title: "Of",
+            width: "md:col-span-3",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 5,
+            title: "F",
+            width: "md:col-span-1",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 6,
+            title: "Club",
+            width: "md:col-span-2",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 7,
+            title: "Is",
+            width: "md:col-span-2",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 8,
+            title: "You",
+            width: "md:col-span-1",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 9,
+            title: "Do NOT TALK about",
+            width: "md:col-span-2",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+          {
+            id: 10,
+            title: "F Club",
+            width: "md:col-span-1",
+            height: "h-60",
+            bg: "bg-neutral-100 dark:bg-neutral-800",
+          },
+        ].map((box) => (
+          <div
+            key={box.id}
+            className={`${box.width} ${box.height} ${box.bg} flex items-center justify-center rounded-lg p-4 shadow-sm`}>
+            <h2 className="text-xl font-medium">{box.title}</h2>
           </div>
-        </div>
-      </nav>
-    </header>
+        ))}
+      </div>
+    </div>
   );
 };
-
-export default Navbar;

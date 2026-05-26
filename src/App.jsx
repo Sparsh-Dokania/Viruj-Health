@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import { NavbarDemo as Navbar } from './components/Navbar';
 import Hero from './components/Hero';
 
 import Features from './components/Features';
@@ -15,13 +15,13 @@ function App() {
         <div className="App">
             <Navbar />
             <main style={{ paddingTop: '0', minHeight: '200vh' }}>
-                <Hero />
+                {/* <Hero />
                 <Metrics />
                 <Features />
                 <HowItWorks />
                 <Pricing />
                 <Testimonials />
-                <FAQ />
+                <FAQ /> */}
             </main>
             <Footer />
         </div>
