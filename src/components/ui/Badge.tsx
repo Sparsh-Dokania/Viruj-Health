@@ -13,12 +13,12 @@ export const Badge: React.FC<BadgeProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    primary: 'bg-[#0F766E]/10 text-[#0F766E] border border-[#0F766E]/20',
-    secondary: 'bg-[#E5E7EB] text-[#1E293B] border border-[#D1D5DB]',
-    success: 'bg-[#047857]/10 text-[#047857] border border-[#047857]/20',
-    warning: 'bg-[#D97706]/10 text-[#D97706] border border-[#D97706]/20',
-    error: 'bg-[#DC2626]/10 text-[#DC2626] border border-[#DC2626]/20',
-    info: 'bg-[#0369A1]/10 text-[#0369A1] border border-[#0369A1]/20',
+    primary: 'bg-primary/10 text-primary border border-primary/20',
+    secondary: 'bg-surface-subtle text-foreground border border-border',
+    success: 'bg-success/10 text-success border border-success/20',
+    warning: 'bg-warning/10 text-warning border border-warning/20',
+    error: 'bg-destructive/10 text-destructive border border-destructive/20',
+    info: 'bg-info/10 text-info border border-info/20',
   };
 
   const sizeStyles = {
@@ -51,11 +51,11 @@ export const Pill: React.FC<PillProps> = ({
   ...props
 }) => {
   const colorStyles = {
-    teal: 'bg-[#0F766E]/10 text-[#0F766E]',
-    crimson: 'bg-[#991B1B]/10 text-[#991B1B]',
-    gray: 'bg-[#F3F4F6] text-[#475569]',
-    success: 'bg-[#047857]/10 text-[#047857]',
-    warning: 'bg-[#D97706]/10 text-[#D97706]',
+    teal: 'bg-primary/10 text-primary',
+    crimson: 'bg-secondary-brand/10 text-secondary-brand',
+    gray: 'bg-surface-subtle text-muted-foreground',
+    success: 'bg-success/10 text-success',
+    warning: 'bg-warning/10 text-warning',
   };
 
   const sizeStyles = {

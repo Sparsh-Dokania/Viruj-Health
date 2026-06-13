@@ -15,13 +15,13 @@ export const NavBar: React.FC<NavBarProps> = ({
 }) => (
   <nav
     className={cn(
-      'sticky top-0 z-[1020] w-full border-b border-[#E5E7EB] bg-[#FFFFFF]/80 backdrop-blur-sm transition-all',
+      'sticky top-0 z-1020 w-full border-b border-border bg-background/80 backdrop-blur-sm transition-all',
       className
     )}
     {...props}
   >
     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      {logo && <div className="flex-shrink-0">{logo}</div>}
+      {logo && <div className="shrink-0">{logo}</div>}
       {children}
     </div>
   </nav>
@@ -47,10 +47,10 @@ export const SidebarLayout: React.FC<SidebarLayoutProps> = ({
   sidebarWidth = 'md',
   ...props
 }) => (
-  <div className={cn('flex h-screen bg-[#FFFFFF]', className)} {...props}>
+  <div className={cn('flex h-screen bg-background', className)} {...props}>
     <aside
       className={cn(
-        'border-r border-[#E5E7EB] bg-[#F7FAF9] overflow-y-auto transition-all',
+        'border-r border-border bg-surface-muted overflow-y-auto transition-all',
         sidebarWidths[sidebarWidth]
       )}
     >
@@ -100,7 +100,7 @@ export const ModalBackdrop: React.FC<ModalBackdropProps> = ({
   return (
     <div
       className={cn(
-        'fixed inset-0 z-[1040] bg-black/50 backdrop-blur-sm flex items-center justify-center',
+        'fixed inset-0 z-1040 bg-black/50 backdrop-blur-sm flex items-center justify-center',
         className
       )}
       onClick={onClose}
@@ -123,7 +123,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
 }) => (
   <div
     className={cn(
-      'fixed bottom-6 right-6 z-[1070] flex flex-col gap-3 max-w-sm pointer-events-none',
+      'fixed bottom-6 right-6 z-1070 flex flex-col gap-3 max-w-sm pointer-events-none',
       className
     )}
     {...props}
@@ -145,11 +145,11 @@ export const Toast: React.FC<ToastProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    default: 'bg-[#FFFFFF] border border-[#E5E7EB] text-[#0F172A]',
-    success: 'bg-[#047857] text-white border-0',
-    error: 'bg-[#DC2626] text-white border-0',
-    warning: 'bg-[#D97706] text-white border-0',
-    info: 'bg-[#0369A1] text-white border-0',
+    default: 'bg-card border border-border text-card-foreground',
+    success: 'bg-success text-white border-0',
+    error: 'bg-destructive text-destructive-foreground border-0',
+    warning: 'bg-warning text-white border-0',
+    info: 'bg-info text-white border-0',
   };
 
   return (
@@ -174,9 +174,9 @@ interface SectionProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const bgStyles = {
-  primary: 'bg-[#FFFFFF]',
-  secondary: 'bg-[#F7FAF9]',
-  tertiary: 'bg-[#F3F6F5]',
+  primary: 'bg-background',
+  secondary: 'bg-surface-muted',
+  tertiary: 'bg-surface-subtle',
 };
 
 const spacingStyles = {
@@ -232,12 +232,12 @@ export const Drawer: React.FC<DrawerProps> = ({
   return (
     <>
       <div
-        className="fixed inset-0 z-[1040] bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-1040 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
       <div
         className={cn(
-          'fixed top-0 h-screen w-64 bg-[#FFFFFF] shadow-lg z-[1050] transition-transform',
+          'fixed top-0 h-screen w-64 bg-card shadow-lg z-1050 transition-transform',
           position === 'left' ? 'left-0' : 'right-0',
           className
         )}

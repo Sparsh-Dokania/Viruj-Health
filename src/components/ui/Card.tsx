@@ -10,18 +10,18 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', hover = false, ...props }, ref) => {
     const variantStyles = {
       default:
-        'border border-[#E5E7EB] bg-[#FFFFFF] text-[#0F172A] shadow-[0_4px_12px_rgba(15,23,42,0.04)]',
+        'border border-border bg-card text-card-foreground shadow-[0_4px_12px_rgba(15,23,42,0.04)]',
       interactive:
-        'border border-[#E5E7EB] bg-[#FFFFFF] text-[#0F172A] shadow-[0_10px_30px_rgba(15,23,42,0.06)] cursor-pointer',
+        'border border-border bg-card text-card-foreground shadow-[0_10px_30px_rgba(15,23,42,0.06)] cursor-pointer',
       elevated:
-        'border border-[#E5E7EB] bg-[#F7FAF9] text-[#0F172A] shadow-[0_20px_50px_rgba(15,23,42,0.08)]',
+        'border border-border bg-surface-muted text-card-foreground shadow-[0_20px_50px_rgba(15,23,42,0.08)]',
     };
 
     return (
       <div
         ref={ref}
         className={cn(
-          'rounded-[24px] p-6 transition-all duration-300 ease-in-out',
+          'rounded-3xl p-6 transition-all duration-300 ease-in-out',
           variantStyles[variant],
           hover && 'hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:-translate-y-1',
           className
@@ -48,7 +48,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingEleme
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-xl font-semibold text-[#0F172A]', className)}
+      className={cn('text-xl font-semibold text-card-foreground', className)}
       {...props}
     />
   )
@@ -59,7 +59,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLPara
   ({ className, ...props }, ref) => (
     <p
       ref={ref}
-      className={cn('text-sm text-[#475569] mt-1', className)}
+      className={cn('text-sm text-muted-foreground mt-1', className)}
       {...props}
     />
   )
@@ -77,7 +77,7 @@ const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex gap-4 pt-6 border-t border-[#E5E7EB]', className)}
+      className={cn('flex gap-4 pt-6 border-t border-border', className)}
       {...props}
     />
   )

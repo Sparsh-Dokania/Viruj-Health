@@ -33,16 +33,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        'bg-[#0F766E] text-white hover:bg-[#115E59] active:bg-[#0D5F59] focus-visible:ring-[#0F766E]/30',
+        'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 focus-visible:ring-primary/30',
       secondary:
-        'bg-[#F3F6F5] text-[#0F172A] hover:bg-[#E5EEEC] active:bg-[#D9E8E4] focus-visible:ring-[#0F766E]/20',
+        'bg-surface-subtle text-foreground hover:bg-surface-muted active:bg-muted focus-visible:ring-primary/20',
       tertiary:
-        'bg-transparent text-[#0F766E] border border-[#D1D5DB] hover:bg-[#F7FAF9] active:bg-[#EEF4F2] focus-visible:ring-[#0F766E]/30',
+        'bg-transparent text-primary border border-border hover:bg-surface-muted active:bg-surface-subtle focus-visible:ring-primary/30',
       ghost:
-        'bg-transparent text-[#0F766E] hover:bg-[#F7FAF9] active:bg-[#F3F6F5] focus-visible:ring-[#0F766E]/30',
+        'bg-transparent text-primary hover:bg-surface-muted active:bg-surface-subtle focus-visible:ring-primary/30',
       danger:
-        'bg-[#DC2626] text-white hover:bg-[#B91C1C] active:bg-[#7F1D1D] focus-visible:ring-[#DC2626]/30',
-      ai: 'bg-[#991B1B] text-white hover:bg-[#7F1D1D] active:bg-[#65161B] focus-visible:ring-[#991B1B]/30',
+        'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 focus-visible:ring-destructive/30',
+      ai: 'bg-secondary-brand text-white hover:bg-secondary-brand/90 active:bg-secondary-brand/80 focus-visible:ring-secondary-brand/30',
     };
 
     return (

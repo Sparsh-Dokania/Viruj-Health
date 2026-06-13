@@ -12,11 +12,11 @@ import { ArrowRight, Shield, Brain, Heart, TrendingUp, Lock } from 'lucide-react
 // Hero Section
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#FFFFFF] to-[#F7FAF9] pt-32 pb-24 overflow-hidden">
+    <section className="relative w-full bg-linear-to-b from-background to-surface-muted pt-32 pb-24 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-1/4 w-96 h-96 bg-[#0F766E]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-[#991B1B]/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-destructive/5 rounded-full blur-3xl" />
       </div>
 
       <Container size="lg" className="relative z-10">
@@ -26,14 +26,14 @@ export const HeroSection: React.FC = () => {
             <StaggerItem>
               <H1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Healthcare,{' '}
-                <span className="bg-gradient-to-r from-[#0F766E] to-[#991B1B] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-primary to-destructive bg-clip-text text-transparent">
                   intelligently simplified
                 </span>
               </H1>
             </StaggerItem>
 
             <StaggerItem>
-              <Body className="text-lg text-[#475569] max-w-lg">
+              <Body className="text-lg text-muted-foreground max-w-lg">
                 Meet your personal healthcare operating system. Seamless doctor discovery, 
                 AI-powered insights, and continuity of care—all in one calm, premium experience.
               </Body>
@@ -52,7 +52,7 @@ export const HeroSection: React.FC = () => {
             </StaggerItem>
 
             <StaggerItem>
-              <BodySmall className="text-[#9CA3AF]">
+              <BodySmall className="text-muted-foreground">
                 ✓ HIPAA Compliant  ✓ ISO 27001 Certified  ✓ No CC Required
               </BodySmall>
             </StaggerItem>
@@ -60,10 +60,10 @@ export const HeroSection: React.FC = () => {
 
           {/* Right: Product Preview (Placeholder for now) */}
           <FadeScale delay={0.3}>
-            <div className="bg-gradient-to-br from-[#F7FAF9] to-[#F3F6F5] rounded-3xl p-8 shadow-[0_20px_50px_rgba(15,23,42,0.08)] h-96 flex items-center justify-center">
+            <div className="bg-linear-to-br from-surface-muted to-surface-subtle rounded-3xl p-8 shadow-[0_20px_50px_rgba(15,23,42,0.08)] h-96 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-5xl mb-2">📱</div>
-                <Body className="text-[#9CA3AF]">Premium Dashboard Preview</Body>
+                <Body className="text-muted-foreground">Premium Dashboard Preview</Body>
               </div>
             </div>
           </FadeScale>
@@ -109,13 +109,13 @@ export const EcosystemSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#F7FAF9] py-20 px-6">
+    <section className="w-full bg-surface-muted py-20 px-6">
       <Container size="lg">
         <Stack spacing="xl" align="center" className="mb-16">
           <H2 className="text-center">
             Your Complete Healthcare Ecosystem
           </H2>
-          <Body className="text-center text-[#475569] max-w-2xl">
+          <Body className="text-center text-muted-foreground max-w-2xl">
             Every feature designed to reduce friction, increase clarity, and put you in control of your health.
           </Body>
         </Stack>
@@ -123,10 +123,10 @@ export const EcosystemSection: React.FC = () => {
         <Grid cols={3} responsive={true} gap="lg">
           {features.map((feature, index) => (
             <ScrollReveal key={index}>
-              <div className="bg-[#FFFFFF] rounded-2xl p-8 border border-[#E5E7EB] hover:shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all">
-                <div className="text-[#0F766E] mb-4">{feature.icon}</div>
+              <div className="bg-card rounded-2xl p-8 border border-border hover:shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all">
+                <div className="text-primary mb-4">{feature.icon}</div>
                 <H3 className="text-xl font-semibold mb-3">{feature.title}</H3>
-                <Body className="text-[#475569]">{feature.description}</Body>
+                <Body className="text-muted-foreground">{feature.description}</Body>
               </div>
             </ScrollReveal>
           ))}
@@ -139,14 +139,14 @@ export const EcosystemSection: React.FC = () => {
 // AI Intelligence Layer
 export const AIIntelligenceSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#FFFFFF] py-20 px-6">
+    <section className="w-full bg-background py-20 px-6">
       <Container size="lg">
         <Grid cols={2} responsive={true} gap="lg" className="items-center">
           <FadeScale>
-            <div className="bg-gradient-to-br from-[#0F766E]/10 to-[#991B1B]/10 rounded-3xl p-12 h-80 flex items-center justify-center">
+            <div className="bg-linear-to-br from-primary/10 to-destructive/10 rounded-3xl p-12 h-80 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl mb-4">🧠</div>
-                <Body className="text-[#9CA3AF]">AI Intelligence Visualization</Body>
+                <Body className="text-muted-foreground">AI Intelligence Visualization</Body>
               </div>
             </div>
           </FadeScale>
@@ -157,7 +157,7 @@ export const AIIntelligenceSection: React.FC = () => {
             </StaggerItem>
 
             <StaggerItem>
-              <Body className="text-[#475569]">
+              <Body className="text-muted-foreground">
                 Our AI assistant is not a chatbot. It's a calm, contextual healthcare intelligence layer that helps you:
               </Body>
             </StaggerItem>
@@ -172,7 +172,7 @@ export const AIIntelligenceSection: React.FC = () => {
                   'Connect health insights across visits',
                 ].map((item, i) => (
                   <Flex key={i} gap="md" align="start">
-                    <div className="text-[#0F766E] font-bold mt-1">✓</div>
+                    <div className="text-primary font-bold mt-1">✓</div>
                     <Body>{item}</Body>
                   </Flex>
                 ))}
@@ -180,7 +180,7 @@ export const AIIntelligenceSection: React.FC = () => {
             </StaggerItem>
 
             <StaggerItem>
-              <BodySmall className="text-[#9CA3AF] italic">
+              <BodySmall className="text-muted-foreground italic">
                 Medical-grade safe. Never replaces professional advice. Always transparent.
               </BodySmall>
             </StaggerItem>
@@ -203,11 +203,11 @@ export const CareContinuitySection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#F3F6F5] py-20 px-6">
+    <section className="w-full bg-surface-subtle py-20 px-6">
       <Container size="lg">
         <Stack spacing="xl" align="center" className="mb-16">
           <H2 className="text-center">Your Healthcare Journey</H2>
-          <Body className="text-center text-[#475569] max-w-2xl">
+          <Body className="text-center text-muted-foreground max-w-2xl">
             Every interaction is designed for seamless continuity and clarity.
           </Body>
         </Stack>
@@ -216,11 +216,11 @@ export const CareContinuitySection: React.FC = () => {
           {steps.map((step, i) => (
             <ScrollReveal key={i}>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#0F766E] text-white rounded-full flex items-center justify-center font-bold text-xl">
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-xl">
                   {i + 1}
                 </div>
                 <H3 className="text-lg font-semibold mb-2">{step.title}</H3>
-                <Body className="text-[#475569]">{step.description}</Body>
+                <Body className="text-muted-foreground">{step.description}</Body>
               </div>
             </ScrollReveal>
           ))}
@@ -233,15 +233,15 @@ export const CareContinuitySection: React.FC = () => {
 // CTA Section
 export const CTASection: React.FC = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-[#0F766E] to-[#991B1B] py-20 px-6 text-white">
+    <section className="w-full bg-linear-to-r from-primary to-destructive py-20 px-6 text-white">
       <Container size="md">
         <Stack spacing="lg" align="center" className="text-center">
           <H2 className="text-white">Ready to Transform Your Healthcare?</H2>
-          <Body className="text-[#E8F0F5]">
+          <Body className="text-white/85">
             Join thousands of patients taking control of their health with Viruj.
           </Body>
           <Flex gap="md" justify="center">
-            <Button variant="primary" size="lg" className="bg-white text-[#0F766E] hover:bg-[#F7FAF9]">
+            <Button variant="primary" size="lg" className="bg-white text-primary hover:bg-surface-muted">
               Start Your Free Trial
               <ArrowRight className="w-4 h-4" />
             </Button>

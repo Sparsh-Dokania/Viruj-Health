@@ -9,7 +9,7 @@ export const H1: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => (
   <h1
     className={cn(
-      'text-5xl font-bold leading-tight text-[#0F172A]',
+      'text-5xl font-bold leading-tight text-foreground',
       className
     )}
     {...props}
@@ -22,7 +22,7 @@ export const H2: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => (
   <h2
     className={cn(
-      'text-4xl font-bold leading-tight text-[#0F172A]',
+      'text-4xl font-bold leading-tight text-foreground',
       className
     )}
     {...props}
@@ -35,7 +35,7 @@ export const H3: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => (
   <h3
     className={cn(
-      'text-3xl font-semibold leading-tight text-[#0F172A]',
+      'text-3xl font-semibold leading-tight text-foreground',
       className
     )}
     {...props}
@@ -48,7 +48,7 @@ export const H4: React.FC<HTMLAttributes<HTMLHeadingElement>> = ({
 }) => (
   <h4
     className={cn(
-      'text-2xl font-semibold leading-tight text-[#0F172A]',
+      'text-2xl font-semibold leading-tight text-foreground',
       className
     )}
     {...props}
@@ -60,7 +60,7 @@ export const Body: React.FC<HTMLAttributes<HTMLParagraphElement>> = ({
   ...props
 }) => (
   <p
-    className={cn('text-base leading-relaxed text-[#1E293B]', className)}
+    className={cn('text-base leading-relaxed text-foreground', className)}
     {...props}
   />
 );
@@ -70,7 +70,7 @@ export const BodySmall: React.FC<HTMLAttributes<HTMLParagraphElement>> = ({
   ...props
 }) => (
   <p
-    className={cn('text-sm leading-relaxed text-[#475569]', className)}
+    className={cn('text-sm leading-relaxed text-muted-foreground', className)}
     {...props}
   />
 );
@@ -81,7 +81,7 @@ export const Label: React.FC<HTMLAttributes<HTMLLabelElement>> = ({
 }) => (
   <label
     className={cn(
-      'text-sm font-medium leading-none text-[#0F172A]',
+      'text-sm font-medium leading-none text-foreground',
       className
     )}
     {...props}
@@ -93,7 +93,7 @@ export const Caption: React.FC<HTMLAttributes<HTMLSpanElement>> = ({
   ...props
 }) => (
   <span
-    className={cn('text-xs leading-relaxed text-[#475569]', className)}
+    className={cn('text-xs leading-relaxed text-muted-foreground', className)}
     {...props}
   />
 );
@@ -104,7 +104,7 @@ export const Code: React.FC<HTMLAttributes<HTMLElement>> = ({
 }) => (
   <code
     className={cn(
-      'px-2 py-1 bg-[#F3F6F5] text-[#0F766E] rounded text-sm font-mono',
+      'px-2 py-1 bg-surface-subtle text-primary rounded text-sm font-mono',
       className
     )}
     {...props}
@@ -115,5 +115,5 @@ export const Muted: React.FC<HTMLAttributes<HTMLSpanElement>> = ({
   className,
   ...props
 }) => (
-  <span className={cn('text-[#475569]', className)} {...props} />
+  <span className={cn('text-muted-foreground', className)} {...props} />
 );

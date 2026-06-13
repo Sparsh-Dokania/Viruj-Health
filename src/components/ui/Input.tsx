@@ -25,9 +25,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const variantStyles = {
       default:
-        'border border-[#D1D5DB] bg-[#FFFFFF] text-[#0F172A] placeholder-[#9CA3AF] focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/10',
+        'border border-input bg-card text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/10',
       ghost:
-        'border-0 border-b border-[#E5E7EB] bg-transparent text-[#0F172A] placeholder-[#9CA3AF] focus:border-b-[#0F766E] focus:ring-0',
+        'border-0 border-b border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:border-b-primary focus:ring-0',
     };
 
     return (
@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={id}
-            className="text-sm font-medium text-[#0F172A]"
+            className="text-sm font-medium text-foreground"
           >
             {label}
           </label>
@@ -46,15 +46,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             'px-4 py-2.5 text-base rounded-md transition-all duration-200 ease-in-out focus-visible:outline-none',
             variantStyles[variant],
-            error && 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]/10',
+            error && 'border-destructive focus:border-destructive focus:ring-destructive/10',
             fullWidth && 'w-full',
             className
           )}
           {...props}
         />
-        {error && <span className="text-sm text-[#DC2626]">{error}</span>}
+        {error && <span className="text-sm text-destructive">{error}</span>}
         {helperText && !error && (
-          <span className="text-sm text-[#475569]">{helperText}</span>
+          <span className="text-sm text-muted-foreground">{helperText}</span>
         )}
       </div>
     );

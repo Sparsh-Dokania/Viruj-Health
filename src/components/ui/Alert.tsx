@@ -19,11 +19,12 @@ export const Alert: React.FC<AlertProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    info: 'border-[#0369A1]/30 bg-[#0369A1]/5 text-[#0369A1]',
-    success: 'border-[#047857]/30 bg-[#047857]/5 text-[#047857]',
-    warning: 'border-[#D97706]/30 bg-[#D97706]/5 text-[#D97706]',
-    error: 'border-[#DC2626]/30 bg-[#DC2626]/5 text-[#DC2626]',
+    info: 'border-info/30 bg-info/5 text-info',
+    success: 'border-success/30 bg-success/5 text-success',
+    warning: 'border-warning/30 bg-warning/5 text-warning',
+    error: 'border-destructive/30 bg-destructive/5 text-destructive',
   };
+  {title && <div className="font-semibold text-sm mb-1 text-current">{title}</div>}
 
   const iconMap = {
     info: <InfoIcon className="w-5 h-5 flex-shrink-0" />,
@@ -60,7 +61,7 @@ export const AlertTitle: React.FC<AlertTitleProps> = ({
   ...props
 }) => (
   <h3
-    className={cn('font-semibold text-sm', className)}
+    className={cn('font-semibold text-sm text-current', className)}
     {...props}
   />
 );
@@ -72,7 +73,7 @@ export const AlertDescription: React.FC<AlertDescriptionProps> = ({
   ...props
 }) => (
   <p
-    className={cn('text-sm opacity-90 mt-1', className)}
+    className={cn('text-sm opacity-90 mt-1 text-current', className)}
     {...props}
   />
 );
