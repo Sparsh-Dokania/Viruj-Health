@@ -1,9 +1,8 @@
-// Base UI Components
 export { Button, type ButtonProps } from './Button';
+export { Badge, type BadgeProps } from './Badge';
+export { Chip, type ChipProps } from './Chip';
+export { Card, type CardProps } from './Card';
+export { Avatar, type AvatarProps } from './Avatar';
 export { Input, type InputProps } from './Input';
-export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, type CardProps } from './Card';
-export { H1, H2, H3, H4, Body, BodySmall, Label, Caption, Code, Muted } from './Typography';
-export { Badge, Pill, type BadgeProps, type PillProps } from './Badge';
-export { Alert, AlertTitle, AlertDescription, type AlertProps } from './Alert';
-export { Divider, Separator, type DividerProps, type SeparatorProps } from './Divider';
-export { Container, Grid, Flex, Stack, type ContainerProps, type GridProps, type FlexProps, type StackProps } from './Layout';
+export { SplitText, type SplitTextProps } from './SplitText';
+export { AnimatedCounter } from './AnimatedCounter';

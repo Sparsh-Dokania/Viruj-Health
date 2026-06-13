@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-viruj-navy-950 text-white font-sans antialiased;
+    background-color: #070E1A;
+  }
+
+  /* Accessibility: outline-offset and focus-visible rings */
+  :focus-visible {
+    outline: 2px solid #0F9E72 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Custom premium scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #0F2040;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0F9E72;
+}
+
+/* Glass nav style matching Stitch config */
+.glass-nav {
+  background-color: rgba(10, 22, 40, 0.92) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid rgba(188, 202, 193, 0.1);
+}
+
+/* Hero section radial lighting design */
+.hero-gradient {
+  background: radial-gradient(circle at 70% 30%, rgba(15, 158, 114, 0.15) 0%, rgba(7, 14, 26, 1) 70%);
+}
+
+/* Utility to hide horizontal scrollbar in carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

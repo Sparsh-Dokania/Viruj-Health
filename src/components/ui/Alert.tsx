@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 import { AlertCircle, CheckCircle, InfoIcon, AlertTriangle } from 'lucide-react';
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,6 @@ export const Alert: React.FC<AlertProps> = ({
     warning: 'border-warning/30 bg-warning/5 text-warning',
     error: 'border-destructive/30 bg-destructive/5 text-destructive',
   };
-  {title && <div className="font-semibold text-sm mb-1 text-current">{title}</div>}
 
   const iconMap = {
     info: <InfoIcon className="w-5 h-5 flex-shrink-0" />,
@@ -54,7 +53,7 @@ export const Alert: React.FC<AlertProps> = ({
   );
 };
 
-export interface AlertTitleProps extends HTMLAttributes<HTMLHeadingElement> {}
+export type AlertTitleProps = HTMLAttributes<HTMLHeadingElement>;
 
 export const AlertTitle: React.FC<AlertTitleProps> = ({
   className,
@@ -66,7 +65,7 @@ export const AlertTitle: React.FC<AlertTitleProps> = ({
   />
 );
 
-export interface AlertDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {}
+export type AlertDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
 
 export const AlertDescription: React.FC<AlertDescriptionProps> = ({
   className,

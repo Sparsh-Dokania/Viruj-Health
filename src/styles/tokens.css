@@ -1,0 +1,24 @@
+:root {
+  --viruj-navy-700: #1A3560;
+  --viruj-navy-800: #0F2040;
+  --viruj-navy-900: #0A1628;
+  --viruj-navy-950: #070E1A;
+
+  --viruj-teal-50: #E0F5EF;
+  --viruj-teal-200: #9FE0C8;
+  --viruj-teal-500: #0F9E72;
+  --viruj-teal-600: #0F6E56;
+  --viruj-teal-800: #085041;
+
+  --viruj-violet-50: #F0EEFF;
+  --viruj-violet-200: #C4BAFC;
+  --viruj-violet-500: #7F5AF0;
+  --viruj-violet-700: #5B3DB8;
+
+  --viruj-neutral-50: #F6F9FC;
+  --viruj-neutral-100: #ECF1F8;
+  --viruj-neutral-200: #D4DCE8;
+  --viruj-neutral-600: #5A6A80;
+  --viruj-neutral-800: #2C3A4E;
+  --viruj-neutral-950: #0F1923;
+}
