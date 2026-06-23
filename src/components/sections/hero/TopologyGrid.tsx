@@ -4,7 +4,7 @@ export function TopologyGrid() {
       className="
         absolute
         inset-0
-        opacity-[0.04]
+        opacity-[0.015]
         bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
         bg-[size:90px_90px]
         pointer-events-none

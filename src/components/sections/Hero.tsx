@@ -73,9 +73,7 @@ export function Hero() {
             flex-col
             gap-16
             min-h-[85vh]
-
-            lg:grid
-            lg:grid-cols-[minmax(0,1fr)_650px]
+            lg:grid lg:grid-cols-[1fr_750px]
             lg:gap-24
             lg:items-center
           "
