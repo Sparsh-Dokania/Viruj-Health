@@ -1,18 +1,21 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useGSAP } from "@/hooks/useGSAP";
-import { gsap } from "@/lib/gsap";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { Button, SplitText } from "@/components/ui";
-import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { TopologyGrid } from "./hero/TopologyGrid";
+import { ArrowRight, Sparkles } from "lucide-react";
+
+import { useGSAP } from "@/hooks/useGSAP";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { gsap } from "@/lib/gsap";
+
+import { Button, SplitText } from "@/components/ui";
+
 import { AmbientBackground } from "./hero/AmbientBackground";
+import { TopologyGrid } from "./hero/TopologyGrid";
+import { EcosystemVisualization } from "./hero/EcosystemVisualization";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const phoneRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
@@ -24,87 +27,178 @@ export function Hero() {
     gsap.from(".split-word", {
       y: 20,
       opacity: 0,
-      stagger: 0.07,
+      stagger: 0.06,
       duration: 0.6,
-      delay: 0.2,
+      delay: 0.15,
       ease: "power2.out",
-      onComplete: () => {
-        gsap.set(".split-word", { clearProps: "transform" });
-      },
     });
 
-    gsap.from([".hero-eyebrow", ".hero-desc", ".hero-ctas", ".hero-stats"], {
+    gsap.from([".hero-eyebrow", ".hero-desc", ".hero-ctas"], {
       opacity: 0,
       y: 15,
       stagger: 0.1,
       duration: 0.6,
-      delay: 0.4,
+      delay: 0.35,
       ease: "power2.out",
-      onComplete: () => {
-        gsap.set([".hero-eyebrow", ".hero-desc", ".hero-ctas", ".hero-stats"], {
-          clearProps: "transform",
-        });
-      },
     });
-
-    if (phoneRef.current) {
-      gsap.to(phoneRef.current, {
-        y: -30,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-    }
   }, [prefersReducedMotion]);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen hero-gradient bg-viruj-navy-950 flex flex-col justify-center overflow-hidden pt-20"
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-viruj-navy-950
+        pt-24
+      "
     >
+      {/* Atmosphere */}
       <AmbientBackground />
       <TopologyGrid />
-      <div className="max-w-[1400px] mx-auto px-6 w-full gap-12 items-center justify-center relative z-10 py-12 lg:py-0">
-        <div className="space-y-6 text-center items-center justify-center flex flex-col">
-          <div className="hero-eyebrow inline-flex">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-viruj-violet-50/10 text-viruj-violet-200 border border-viruj-violet-200/20 text-xs font-semibold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 fill-current text-viruj-violet-200" />
-              AI-powered healthcare
-            </span>
-          </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold pb-2 text-white leading-tight tracking-tight max-w-xl">
-            <SplitText text="Care that understands you" />
-          </h1>
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1400px]
+          px-6
+        "
+      >
+        <div
+          className="
+            flex
+            flex-col
+            gap-16
+            min-h-[85vh]
 
-          <p className="hero-desc text-base sm:text-lg text-viruj-neutral-200/60 max-w-lg leading-relaxed">
-            Viruj combines precision diagnostics with advanced medical
-            intelligence to provide a healthcare experience that is as unique as
-            your DNA.
-          </p>
-
-          <div className="hero-ctas flex flex-col sm:flex-row gap-4 pt-2">
-            <Link href="#ai" passHref legacyBehavior>
-              <Button
-                variant="primary"
-                size="lg"
-                rightIcon={
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                }
-                className="group font-bold"
+            lg:grid
+            lg:grid-cols-[minmax(0,1fr)_650px]
+            lg:gap-24
+            lg:items-center
+          "
+        >
+          {/* LEFT CONTENT */}
+          <div
+            className="
+              max-w-2xl
+              space-y-8
+              flex
+              flex-col
+              items-start
+            "
+          >
+            {/* Eyebrow */}
+            <div className="hero-eyebrow">
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-viruj-violet-200/15
+                  bg-viruj-violet-50/5
+                  px-4
+                  py-2
+                  text-xs
+                  font-semibold
+                  uppercase
+                  tracking-[0.18em]
+                  text-viruj-violet-200
+                "
               >
-                Try AI assistant
-              </Button>
-            </Link>
-            <Link href="#doctors" passHref legacyBehavior>
-              <Button variant="secondary" size="lg" className="font-bold">
-                Find a doctor
-              </Button>
-            </Link>
+                <Sparkles className="h-3.5 w-3.5 fill-current" />
+                Intelligent Care Platform
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1
+              className="
+                text-5xl
+                sm:text-6xl
+                lg:text-[5rem]
+                font-extrabold
+                tracking-tight
+                leading-[0.95]
+                text-white
+                max-w-3xl
+              "
+            >
+              <SplitText text="Healthcare, intelligently connected." />
+            </h1>
+
+            {/* Description */}
+            <p
+              className="
+                hero-desc
+                max-w-xl
+                text-lg
+                leading-relaxed
+                text-viruj-neutral-200/65
+              "
+            >
+              One intelligent system for appointments, diagnostics, medical
+              records, and AI-assisted care — designed around your entire health
+              journey.
+            </p>
+
+            {/* CTAs */}
+            <div
+              className="
+                hero-ctas
+                flex
+                flex-col
+                gap-4
+                sm:flex-row
+              "
+            >
+              <Link href="#ai">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group font-semibold"
+                  rightIcon={
+                    <ArrowRight
+                      className="
+                        h-4
+                        w-4
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-1
+                      "
+                    />
+                  }
+                >
+                  Try AI Assistant
+                </Button>
+              </Link>
+
+              <Link href="#doctors">
+                <Button variant="secondary" size="lg" className="font-semibold">
+                  Find a Doctor
+                </Button>
+              </Link>
+            </div>
+
+            {/* Optional Trust Copy */}
+            <p
+              className="
+                text-sm
+                text-white/40
+                pt-2
+              "
+            >
+              Trusted healthcare experiences powered by diagnostics, medical
+              expertise, and AI-assisted guidance.
+            </p>
           </div>
+
+          {/* RIGHT ECOSYSTEM */}
+          <EcosystemVisualization />
         </div>
       </div>
     </section>
