@@ -34,14 +34,17 @@ export function Hero() {
       ease: "power2.out",
     });
 
-    gsap.from([".hero-eyebrow", ".hero-desc", ".hero-ctas"], {
-      opacity: 0,
-      y: 15,
-      stagger: 0.1,
-      duration: 0.6,
-      delay: 0.35,
-      ease: "power2.out",
-    });
+    gsap.from(
+      [".hero-eyebrow", ".hero-desc", ".hero-ctas", ".trust-pill"],
+      {
+        opacity: 0,
+        y: 15,
+        stagger: 0.08,
+        duration: 0.6,
+        delay: 0.35,
+        ease: "power2.out",
+      }
+    );
   }, [prefersReducedMotion]);
 
   return (
@@ -49,13 +52,11 @@ export function Hero() {
       ref={containerRef}
       className="
         relative
-        min-h-screen
         overflow-hidden
         bg-viruj-navy-950
         pt-24
       "
     >
-      {/* Atmosphere */}
       <AmbientBackground />
       <HealthcareGlow />
       <TopologyGrid />
@@ -65,7 +66,7 @@ export function Hero() {
           relative
           z-10
           mx-auto
-          max-w-[1320px] 
+          max-w-[1320px]
           px-6
         "
       >
@@ -73,21 +74,30 @@ export function Hero() {
           className="
             flex
             flex-col
-            gap-16
-            min-h-[85vh]
-            lg:grid lg:grid-cols-[1fr_650px]
-            lg:gap-24
+            gap-12
+
+            lg:grid
+            lg:grid-cols-[1fr_620px]
+            lg:gap-8
             lg:items-center
+            lg:min-h-[85vh]
           "
         >
           {/* LEFT CONTENT */}
           <div
             className="
-              max-w-2xl
-              space-y-8
+              max-w-[650px]
+
               flex
               flex-col
-              items-start
+
+              items-center
+              text-center
+
+              lg:items-start
+              lg:text-left
+
+              space-y-8
             "
           >
             {/* Eyebrow */}
@@ -97,16 +107,23 @@ export function Hero() {
                   inline-flex
                   items-center
                   gap-2
+
                   rounded-full
+
                   border
                   border-viruj-violet-200/15
+
                   bg-viruj-violet-50/5
+
                   px-4
                   py-2
+
                   text-xs
                   font-semibold
                   uppercase
+
                   tracking-[0.18em]
+
                   text-viruj-violet-200
                 "
               >
@@ -120,12 +137,15 @@ export function Hero() {
               className="
                 text-5xl
                 sm:text-6xl
-                lg:text-[5rem]
+                lg:text-[4.5rem]
+
                 font-extrabold
                 tracking-tight
                 leading-[0.95]
+
                 text-white
-                max-w-3xl
+
+                max-w-[600px]
               "
             >
               <SplitText text="Healthcare, intelligently connected." />
@@ -135,32 +155,47 @@ export function Hero() {
             <p
               className="
                 hero-desc
-                max-w-xl
-                text-lg
+
+                max-w-[22rem]
+                sm:max-w-[32rem]
+                lg:max-w-[38rem]
+
+                text-base
+                sm:text-lg
+
                 leading-relaxed
+
                 text-viruj-neutral-200/65
               "
             >
-              One intelligent system for appointments, diagnostics, medical
-              records, and AI-assisted care — designed around your entire health
-              journey.
+              One intelligent system for appointments, diagnostics,
+              medical records, and AI-assisted care — designed around
+              your entire health journey.
             </p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <div
               className="
                 hero-ctas
+
                 flex
                 flex-col
-                gap-4
+                gap-3
+
+                w-full
+
                 sm:flex-row
+                sm:w-auto
               "
             >
-              <Link href="#ai">
+              <Link
+                href="#ai"
+                className="w-full sm:w-auto"
+              >
                 <Button
                   variant="primary"
                   size="lg"
-                  className="group font-semibold"
+                  className="group font-semibold w-full sm:w-auto"
                   rightIcon={
                     <ArrowRight
                       className="
@@ -177,59 +212,103 @@ export function Hero() {
                 </Button>
               </Link>
 
-              <Link href="#doctors">
-                <Button variant="secondary" size="lg" className="font-semibold">
+              <Link
+                href="#doctors"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="font-semibold w-full sm:w-auto"
+                >
                   Find a Doctor
                 </Button>
               </Link>
             </div>
 
-            {/* Optional Trust Copy */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              {" "}
+            {/* Trust Pills */}
+            <div
+              className="
+                hidden
+                sm:flex
+
+                flex-wrap
+                justify-center
+                lg:justify-start
+
+                gap-2
+                pt-2
+              "
+            >
               <span
-                className="trust-pill px-3
-py-1.5
-rounded-full
-border
-border-white/10
-bg-white/5
-text-xs
-text-white/60
-backdrop-blur-md"
+                className="
+                  trust-pill
+
+                  px-3
+                  py-1.5
+
+                  rounded-full
+
+                  border
+                  border-white/10
+
+                  bg-white/5
+                  backdrop-blur-md
+
+                  text-xs
+                  text-white/60
+                "
               >
                 ✓ Doctor Verified
               </span>
+
               <span
-                className="trust-pill px-3
-py-1.5
-rounded-full
-border
-border-white/10
-bg-white/5
-text-xs
-text-white/60
-backdrop-blur-md"
+                className="
+                  trust-pill
+
+                  px-3
+                  py-1.5
+
+                  rounded-full
+
+                  border
+                  border-white/10
+
+                  bg-white/5
+                  backdrop-blur-md
+
+                  text-xs
+                  text-white/60
+                "
               >
                 ✓ Unified Records
               </span>
+
               <span
-                className="trust-pill px-3
-py-1.5
-rounded-full
-border
-border-white/10
-bg-white/5
-text-xs
-text-white/60
-backdrop-blur-md  "
+                className="
+                  trust-pill
+
+                  px-3
+                  py-1.5
+
+                  rounded-full
+
+                  border
+                  border-white/10
+
+                  bg-white/5
+                  backdrop-blur-md
+
+                  text-xs
+                  text-white/60
+                "
               >
                 ✓ AI Assisted Care
               </span>
             </div>
           </div>
 
-          {/* RIGHT ECOSYSTEM */}
+          {/* RIGHT SIDE */}
           <EcosystemVisualization />
         </div>
       </div>

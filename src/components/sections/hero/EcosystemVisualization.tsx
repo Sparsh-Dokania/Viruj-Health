@@ -22,7 +22,7 @@ export function EcosystemVisualization() {
         className="
         hidden lg:block
         relative
-        h-[560px]
+        h-[600px]
         w-full
         max-w-[700px]
         mx-auto
@@ -35,15 +35,16 @@ export function EcosystemVisualization() {
           className="
           absolute
           top-0
-          left-1/2
+          left-2/3
           -translate-x-1/2
+          border-cyan-400/20 shadow-[0_0_30px_rgba(34,211,238,0.08)]
           
           w-[300px]
 
           rounded-3xl
           bg-white/[0.03]
           backdrop-blur-xl
-          border border-white/[0.08]
+          border
 
           p-5
         "
@@ -71,7 +72,7 @@ export function EcosystemVisualization() {
           className="
           absolute
           top-[180px]
-          left-0
+          left-[-50px]
 
           w-[250px]
 
@@ -118,8 +119,8 @@ export function EcosystemVisualization() {
         <div
           className="
           absolute
-          top-[180px]
-          right-0
+          top-[230px]
+          right-[-40px]
 
           w-[250px]
 
@@ -171,9 +172,9 @@ export function EcosystemVisualization() {
         <div
           className="
           absolute
-          bottom-0
+          bottom-[50px]
           left-[50px]
-
+          
           w-[240px]
 
           rounded-3xl
@@ -199,11 +200,11 @@ export function EcosystemVisualization() {
         <div
           className="
           absolute
-          bottom-0
+          bottom-[10px]
           right-[50px]
 
           w-[240px]
-
+          opacity-80
           rounded-3xl
           bg-white/[0.03]
           backdrop-blur-xl
@@ -226,69 +227,101 @@ export function EcosystemVisualization() {
         </div>
       </div>
 
-      {/* ========================= */}
-      {/* Mobile */}
-      {/* ========================= */}
+      {/* MOBILE ECOSYSTEM */}
 
-      <div
-        className="
-        lg:hidden
-        mt-10
-        max-w-md
-        mx-auto
-        space-y-4
-      "
-      >
-        <div className="flex justify-center mb-6">
-          <VirujCore />
+      <div className="lg:hidden mt-16">
+        <div className="flex justify-center mb-10">
+          <div className="relative">
+            <div className="absolute inset-0 bg-cyan-400/10 blur-3xl rounded-full scale-150" />
+            <div className="relative scale-[0.9]">
+              <VirujCore />
+            </div>
+          </div>
         </div>
 
-        {[
-          {
-            icon: <Brain className="w-5 h-5 text-violet-300" />,
-            title: "AI Insight",
-            text: "Adaptive care guidance and health recommendations.",
-          },
-          {
-            icon: <Activity className="w-5 h-5 text-emerald-300" />,
-            title: "Diagnostics",
-            text: "Cardiac health and recovery trends continuously tracked.",
-          },
-          {
-            icon: <HeartPulse className="w-5 h-5 text-rose-300" />,
-            title: "Care Timeline",
-            text: "Consultations, diagnostics and AI follow-ups connected.",
-          },
-          {
-            icon: <FileText className="w-5 h-5 text-cyan-300" />,
-            title: "Medical Records",
-            text: "Securely organized and instantly accessible.",
-          },
-          {
-            icon: <ShieldCheck className="w-5 h-5 text-emerald-300" />,
-            title: "Protected Care",
-            text: "End-to-end encrypted health records.",
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="
-            rounded-3xl
-            bg-white/[0.03]
-            backdrop-blur-xl
-            border border-white/[0.08]
-            p-5
-          "
-          >
-            <div className="flex items-center gap-3 mb-3">
-              {item.icon}
-
-              <span className="text-white font-medium">{item.title}</span>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Brain className="w-4 h-4 text-violet-300" />
+              <span className="text-sm font-medium text-white">AI Insight</span>
             </div>
 
-            <p className="text-sm text-white/70">{item.text}</p>
+            <p className="text-xs text-white/55 leading-relaxed">
+              Adaptive health guidance
+            </p>
           </div>
-        ))}
+
+          <div className="rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Activity className="w-4 h-4 text-emerald-300" />
+              <span className="text-sm font-medium text-white">
+                Diagnostics
+              </span>
+            </div>
+
+            <p className="text-xs text-white/55 leading-relaxed">
+              Cardiac trends monitored
+            </p>
+          </div>
+
+          <div className="rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <HeartPulse className="w-4 h-4 text-rose-300" />
+              <span className="text-sm font-medium text-white">Timeline</span>
+            </div>
+
+            <p className="text-xs text-white/55 leading-relaxed">
+              Connected care journey
+            </p>
+          </div>
+
+          <div className="rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <FileText className="w-4 h-4 text-cyan-300" />
+              <span className="text-sm font-medium text-white">Records</span>
+            </div>
+
+            <p className="text-xs text-white/55 leading-relaxed">
+              Instant record access
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-3 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl p-4">
+          <div className="flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 text-emerald-300" />
+
+            <div>
+              <p className="text-sm font-medium text-white">Protected Care</p>
+
+              <p className="text-xs text-white/55">
+                End-to-end encrypted health records
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 mt-5">
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
+            <p className="text-2xl font-bold text-white">50k+</p>
+            <p className="text-xs text-white/50">Patients</p>
+          </div>
+
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
+            <p className="text-2xl font-bold text-white">800+</p>
+            <p className="text-xs text-white/50">Doctors</p>
+          </div>
+
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
+            <p className="text-2xl font-bold text-white">200k+</p>
+            <p className="text-xs text-white/50">AI Consults</p>
+          </div>
+
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-4 text-center">
+            <p className="text-2xl font-bold text-white">NABH</p>
+            <p className="text-xs text-white/50">Verified</p>
+          </div>
+        </div>
       </div>
     </>
   );

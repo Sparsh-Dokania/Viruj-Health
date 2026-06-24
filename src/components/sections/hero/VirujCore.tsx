@@ -55,7 +55,7 @@ export function VirujCore() {
           <Brain className="h-4 w-4 text-cyan-300 mb-1" />
 
           <span className="text-[10px] tracking-wider font-semibold text-white">
-            VIRUJ AI
+            CARE CORE
           </span>
         </div>
       </div>
