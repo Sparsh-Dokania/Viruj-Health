@@ -65,7 +65,7 @@ export function Hero() {
           relative
           z-10
           mx-auto
-          max-w-[1400px]
+          max-w-[1320px] 
           px-6
         "
       >
@@ -75,7 +75,7 @@ export function Hero() {
             flex-col
             gap-16
             min-h-[85vh]
-            lg:grid lg:grid-cols-[1fr_750px]
+            lg:grid lg:grid-cols-[1fr_800px]
             lg:gap-24
             lg:items-center
           "
