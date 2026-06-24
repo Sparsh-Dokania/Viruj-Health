@@ -13,6 +13,7 @@ import { Button, SplitText } from "@/components/ui";
 import { AmbientBackground } from "./hero/AmbientBackground";
 import { TopologyGrid } from "./hero/TopologyGrid";
 import { EcosystemVisualization } from "./hero/EcosystemVisualization";
+import { HealthcareGlow } from "./hero/HealthcareGlow";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,6 +57,7 @@ export function Hero() {
     >
       {/* Atmosphere */}
       <AmbientBackground />
+      <HealthcareGlow />
       <TopologyGrid />
 
       <div
@@ -183,16 +185,48 @@ export function Hero() {
             </div>
 
             {/* Optional Trust Copy */}
-            <p
-              className="
-                text-sm
-                text-white/40
-                pt-2
-              "
-            >
-              Trusted healthcare experiences powered by diagnostics, medical
-              expertise, and AI-assisted guidance.
-            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              {" "}
+              <span
+                className="trust-pill px-3
+py-1.5
+rounded-full
+border
+border-white/10
+bg-white/5
+text-xs
+text-white/60
+backdrop-blur-md"
+              >
+                ✓ Doctor Verified
+              </span>
+              <span
+                className="trust-pill px-3
+py-1.5
+rounded-full
+border
+border-white/10
+bg-white/5
+text-xs
+text-white/60
+backdrop-blur-md"
+              >
+                ✓ Unified Records
+              </span>
+              <span
+                className="trust-pill px-3
+py-1.5
+rounded-full
+border
+border-white/10
+bg-white/5
+text-xs
+text-white/60
+backdrop-blur-md  "
+              >
+                ✓ AI Assisted Care
+              </span>
+            </div>
           </div>
 
           {/* RIGHT ECOSYSTEM */}

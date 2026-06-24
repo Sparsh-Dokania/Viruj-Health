@@ -15,7 +15,7 @@ export function EcosystemConnections() {
     >
       <defs>
         <linearGradient id="lineGradient" x1="0" y1="0" x2="800" y2="600">
-          <stop offset="0%" stopColor="#34D399" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="#34D399" stopOpacity="0.05" />
 
           <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.08" />
         </linearGradient>
