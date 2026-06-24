@@ -13,6 +13,7 @@ export function VirujCore() {
         rounded-full
         bg-cyan-400/10
         blur-3xl
+        animate-pulse
       "
       />
 
